@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import reducer from './reducer';
+import reducer from './contacts/contactsReducer';
 
 const middleware = [...getDefaultMiddleware(), logger];
 

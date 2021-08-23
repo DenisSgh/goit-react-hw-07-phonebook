@@ -1,14 +1,22 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleContacts } from 'redux/selectors';
-import { deleteContact } from 'redux/actions';
-import PropTypes from 'prop-types';
+import { getVisibleContacts } from 'redux/contacts/contactsSelectors';
+import {
+  fetchContacts,
+  fetchDeleteContact,
+} from 'redux/contacts/contactsOperations';
 
 import Section from 'components/Section';
+// import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
 
 const Contacts = () => {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <Section title="Contacts">
@@ -26,7 +34,7 @@ const Contacts = () => {
                 <button
                   className={s.button}
                   type="button"
-                  onClick={() => dispatch(deleteContact(id))}
+                  onClick={() => dispatch(fetchDeleteContact(id))}
                 >
                   Delete
                 </button>
@@ -41,9 +49,9 @@ const Contacts = () => {
   );
 };
 
-Contacts.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
-  deleteContact: PropTypes.func.isRequired,
-};
+// Contacts.propTypes = {
+// contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
+// fetchDeleteContact: PropTypes.func.isRequired,
+// };
 
 export default Contacts;

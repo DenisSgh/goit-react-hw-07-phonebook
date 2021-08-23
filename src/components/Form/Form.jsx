@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import shortid from 'shortid';
 
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/actions';
+import { getContacts } from 'redux/contacts/contactsSelectors';
+import { fetchAddContact } from 'redux/contacts/contactsOperations';
 import Section from 'components/Section';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import s from './Form.module.css';
 
 const Form = () => {
@@ -37,7 +37,7 @@ const Form = () => {
       return alert(`${name} is already in the contact list`);
     }
 
-    dispatch(addContact({ name, number }));
+    dispatch(fetchAddContact({ name, number }));
     reset();
   };
 
@@ -86,9 +86,9 @@ const Form = () => {
   );
 };
 
-Form.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
-  addContact: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
+//   fetchAddContact: PropTypes.func.isRequired,
+// };
 
 export default Form;
