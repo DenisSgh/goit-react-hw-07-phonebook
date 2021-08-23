@@ -6,7 +6,6 @@ import { getContacts } from 'redux/contacts/contactsSelectors';
 import { fetchAddContact } from 'redux/contacts/contactsOperations';
 import Section from 'components/Section';
 
-// import PropTypes from 'prop-types';
 import s from './Form.module.css';
 
 const Form = () => {
@@ -85,10 +84,5 @@ const Form = () => {
     </Section>
   );
 };
-
-// Form.propTypes = {
-//   contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
-//   fetchAddContact: PropTypes.func.isRequired,
-// };
 
 export default Form;

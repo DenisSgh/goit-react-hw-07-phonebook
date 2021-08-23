@@ -7,7 +7,6 @@ import {
 } from 'redux/contacts/contactsOperations';
 
 import Section from 'components/Section';
-// import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
 
 const Contacts = () => {
@@ -48,10 +47,5 @@ const Contacts = () => {
     </Section>
   );
 };
-
-// Contacts.propTypes = {
-// contacts: PropTypes.arrayOf(PropTypes.shape(PropTypes.string.isRequired)),
-// fetchDeleteContact: PropTypes.func.isRequired,
-// };
 
 export default Contacts;
